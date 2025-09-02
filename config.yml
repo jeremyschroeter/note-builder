@@ -1,0 +1,10 @@
+ZOTERO_STORAGE: # /Users/name/Zotero/storage
+OBS_VAULT: # Path to obsidian vault
+TEMPLATE_PATH: # Path to the note markdown file
+
+API_KEY: # API key goes here
+LIBRARY_ID: # Library id goes here
+LIBRARY_TYPE: # Don't think this should have to be anything but 'uder'
+
+PDF_FOLDER: # Folder in your vault for storing papers
+NOTE_FOLDER: # Folder in your vault for storing notes
