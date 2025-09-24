@@ -1,7 +1,6 @@
 import yaml
 from pyzotero import zotero
 from pathlib import Path
-from tqdm import tqdm
 
 # Load configuration
 with open("config.yaml", "r") as f:
@@ -117,7 +116,7 @@ def main():
     items = zot.everything(zot.top(limit=1000))
 
     # Add PDFs
-    for item in tqdm(items, total=len(items)):
+    for item in items:
         metadata = get_metadata(item)
         file_path = get_file_path(zot, metadata['key'])
         add_to_vault(file_path, metadata)
