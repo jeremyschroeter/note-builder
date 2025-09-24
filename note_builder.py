@@ -10,13 +10,13 @@ with open("config.yaml", "r") as f:
 # Set global values
 ZOTERO_STORAGE = Path(config['ZOTERO_STORAGE'])
 OBS_VAULT = Path(config['OBS_VAULT'])
-PDF_FOLDER = OBS_VAULT / Path(config['PDF_FOLDER'])
-NOTE_FOLDER = OBS_VAULT / Path(config['NOTE_FOLDER'])
+PDF_FOLDER = Path(config['PDF_FOLDER'])
+NOTE_FOLDER = Path(config['NOTE_FOLDER'])
 TEMPLATE_PATH = Path(config['TEMPLATE_PATH'])
 
-API_KEY = Path(config['API_KEY'])
-LIBRARY_ID = Path(config['LIBRARY_ID'])
-LIBRARY_TYPE = Path(config['LIBRARY_TYPE'])
+API_KEY = config['API_KEY']
+LIBRARY_ID = config['LIBRARY_ID']
+LIBRARY_TYPE = config['LIBRARY_TYPE']
 
 
 def load_zot():
@@ -101,7 +101,7 @@ def add_to_vault(
         note_path = NOTE_FOLDER / f'{title}.md'
         metadata['pdf_link'] = f'[[Papers/{safe_title}.pdf]]'
         del metadata['key']
-        if note_path.exists():
+        if not note_path.exists():
             create_note(
                 note_path,
                 TEMPLATE_PATH,
